@@ -1,0 +1,38 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table Cars {
+  id string
+  name string
+  rentperday integer
+  capacity integer
+  size enum ("Small","Medium","Large")
+  transmission string
+  year integer
+  photo text
+  createdByID integer
+  lastUpdatedByID integer
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table Auths {
+  id integer [pk]
+  userId integer [ref: > Users.id]
+  password string
+  email string
+  createdAt timestamp
+  updatedAt timestamp
+}
+
+Table Users {
+  id integer [pk]
+  name string
+  city string
+  address string
+  phone string
+  profileImage text
+  role string
+  createdAt timestamp
+  updatedAt timestamp
+}
